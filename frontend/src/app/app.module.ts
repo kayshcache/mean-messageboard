@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatCardModule,
     FormsModule,
+    MatListModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

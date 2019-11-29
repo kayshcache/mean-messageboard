@@ -30,7 +30,7 @@ app.get('/api/message', async (req, res) => {
 
 MongoClient.connect(dbUrl, { useUnifiedTopology: true }, (err, client) => {
 	if (err) return console.log('mongodb error', err);
-	console.log('Connected successfully to Mongoi (Cloud) Atlas');
+	console.log('Connected successfully to Mongo (Cloud) Atlas');
 	db = client.db(dbName);
 });
 
