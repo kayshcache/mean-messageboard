@@ -13,12 +13,19 @@ const dbName = 'mean-messageboard';
 const dbUrl = `mongodb+srv://${DB_CREDENTIALS}@coder-g8zwo.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`
 let db;
 
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/api/message', (req, res) => {
-	console.log(req.body);
-	db.collection('messages').insertOne({'msg': req.body});
+app.post('/api/message', async (req, res) => {
+	const message = req.body;
+	
+	db.collection('messages').insertOne(message);
+
+	const foundUser = await db.collection('users').findOne({name: message.userName});
+	console.log(foundUser);
+
+	if(!foundUser) db.collection('users').insertOne({name: message.userName});
+
 	res.status(200).send();
 });
 
@@ -41,3 +48,6 @@ async function getMessages() {
 	console.log(docs);
 }
 
+async function whatever () {
+
+}
